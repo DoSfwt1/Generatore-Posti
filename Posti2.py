@@ -25,9 +25,10 @@ if 'current_order' not in st.session_state:
     st.session_state.current_order = studenti
 
 def shuffle_seats():
+    random.seed(str_date)
     random.shuffle(studenti)
     st.session_state.current_order = studenti
-    st.session_state.data_simulata += timedelta(days=1)
+    
 
 # Title and Date
 st.title("🪑 Classroom Seating Simulator")
