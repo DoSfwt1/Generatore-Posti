@@ -22,7 +22,7 @@ random.shuffle(studenti)
 
 # Titolo e Data
 st.title("🪑 Classroom Seating Simulator")
-st.subheader(f"Disposizione ufficiale del: {datetime.now().strftime('%d/%m/%Y')}")
+st.subheader(f"Disposizione ufficiale del: {seed_date}")
 
 # Messaggio informativo invece del pulsante (visto che il seed rende tutto fisso)
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno a mezzanotte.")
