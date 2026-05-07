@@ -12,9 +12,13 @@ studenti = [
     "Saita", "Signo", "Sammy", "Caterina", "Anna", "Peruta", "Zanoli", "Sciacca"
 ]
 
+date = datetime.now()
+str_date = date.strftime('%Y-%m-%d')
+random.seed(str_date)
+
 # Initialize Session State for data and shuffle
 if 'data_simulata' not in st.session_state:
-    st.session_state.data_simulata = datetime.now()
+    st.session_state.data_simulata = date
 
 if 'current_order' not in st.session_state:
     random.shuffle(studenti)
