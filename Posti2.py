@@ -1,82 +1,96 @@
-import tkinter as tk
+import streamlit as st
 import random
 from datetime import datetime, timedelta
 
-# Inizializza la data con il giorno corrente (OGGI)
-data_simulata = datetime.now()
+# Page configuration
+st.set_page_config(page_title="Classroom Seat Generator", layout="wide")
 
-def genera_disposizione():
-    global data_simulata
-    
-    # Lista dei 23 studenti
-    studenti = [
-        "Brusa", "Kalle", "Martina", "Dige", "Doyle", "Londino", "Carlo", "Arianna",
-        "Sergio", "Mine", "Elena", "Veronica", "Francesca", "Cristina", "Iris",
-        "Saita", "Signo", "Sammy", "Caterina", "Anna", "Peruta", "Zanoli", "Sciacca"
-    ]
-    
+# Initialize students list
+studenti = [
+    "Brusa", "Kalle", "Martina", "Dige", "Doyle", "Londino", "Carlo", "Arianna",
+    "Sergio", "Mine", "Elena", "Veronica", "Francesca", "Cristina", "Iris",
+    "Saita", "Signo", "Sammy", "Caterina", "Anna", "Peruta", "Zanoli", "Sciacca"
+]
+
+# Initialize Session State for data and shuffle
+if 'data_simulata' not in st.session_state:
+    st.session_state.data_simulata = datetime.now()
+
+if 'current_order' not in st.session_state:
     random.shuffle(studenti)
-    canvas.delete("all")
-    
-    # Mostra la data attuale della simulazione e poi incrementa di 1 giorno per il prossimo click
-    label_data.config(text=f"Disposizione del: {data_simulata.strftime('%d/%m/%Y')}")
-    data_simulata += timedelta(days=1)
-    
-    w_banco, h_banco = 95, 45
-    spazio_y = 25
-    idx = 0
+    st.session_state.current_order = studenti
 
-    def disegna(x, y, nome, colore="#e1f5fe"):
-        canvas.create_rectangle(x, y, x + w_banco, y + h_banco, fill=colore, outline="#01579b", width=2)
-        canvas.create_text(x + w_banco/2, y + h_banco/2, text=nome, font=("Arial", 9, "bold"), width=w_banco-5)
+def shuffle_seats():
+    random.shuffle(studenti)
+    st.session_state.current_order = studenti
+    st.session_state.data_simulata += timedelta(days=1)
 
-    # Coordinate X per le tre file: Sinistra, Centro, Destra
-    x_pos = [50, 320, 600]
+# Title and Date
+st.title("🪑 Classroom Seating Simulator")
+st.subheader(f"Disposizione del: {st.session_state.data_simulata.strftime('%d/%m/%Y')}")
 
-    # --- FILA SINISTRA (6 posti: 3 coppie) ---
+# Button to generate next day
+st.button("🔄 GENERA PER IL GIORNO SUCCESSIVO", on_click=shuffle_seats)
+
+# Helper function to create a "Desk" look
+def desk(name, color="#e1f5fe"):
+    st.markdown(f"""
+        <div style="
+            background-color: {color};
+            border: 2px solid #01579b;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #01579b;
+            font-family: Arial;">
+            {name}
+        </div>
+    """, unsafe_allow_html=True)
+
+# Layout: Cattedra
+st.markdown("<div style='background-color: #fb8c00; color: white; text-align: center; padding: 10px; font-weight: bold; border-radius: 5px; width: 200px; margin: 0 auto 30px auto;'>CATTEDRA</div>", unsafe_allow_html=True)
+
+# Main Seating Layout using columns
+col1, spacer1, col2, spacer2, col3 = st.columns([2, 1, 3, 1, 2])
+idx = 0
+current_studenti = st.session_state.current_order
+
+# --- FILA SINISTRA (6 posti: 3 coppie) ---
+with col1:
+    st.write("**Fila Sinistra**")
     for r in range(3):
-        for p in range(2):
-            disegna(x_pos[0] + (p * (w_banco + 5)), 60 + (r * (h_banco + spazio_y)), studenti[idx])
-            idx += 1
-
-    # --- FILA CENTRALE (9 posti: 3 coppie + 1 terzetto finale) ---
-    for r in range(3):
-        for p in range(2):
-            disegna(x_pos[1] + (p * (w_banco + 5)), 60 + (r * (h_banco + spazio_y)), studenti[idx])
-            idx += 1
-    # Terzetto finale (Fila centrale, quarta riga)
-    for p in range(3):
-        offset_x = (x_pos[1] - 50) + (p * (w_banco + 5))
-        disegna(offset_x, 60 + (3 * (h_banco + spazio_y)), studenti[idx], colore="#fff9c4")
+        c_sub1, c_sub2 = st.columns(2)
+        with c_sub1: desk(current_studenti[idx])
+        idx += 1
+        with c_sub2: desk(current_studenti[idx])
         idx += 1
 
-    # --- FILA DESTRA (8 posti: 4 coppie) ---
+# --- FILA CENTRALE (9 posti: 3 coppie + 1 terzetto) ---
+with col2:
+    st.write("**Fila Centrale**")
+    for r in range(3):
+        c_sub1, c_sub2 = st.columns(2)
+        with c_sub1: desk(current_studenti[idx])
+        idx += 1
+        with c_sub2: desk(current_studenti[idx])
+        idx += 1
+    # Terzetto finale
+    c_sub1, c_sub2, c_sub3 = st.columns(3)
+    for c in [c_sub1, c_sub2, c_sub3]:
+        with c: desk(current_studenti[idx], color="#fff9c4")
+        idx += 1
+
+# --- FILA DESTRA (8 posti: 4 coppie) ---
+with col3:
+    st.write("**Fila Destra**")
     for r in range(4):
-        for p in range(2):
-            if idx < len(studenti):
-                disegna(x_pos[2] + (p * (w_banco + 5)), 60 + (r * (h_banco + spazio_y)), studenti[idx])
-                idx += 1
+        c_sub1, c_sub2 = st.columns(2)
+        if idx < len(current_studenti):
+            with c_sub1: desk(current_studenti[idx])
+            idx += 1
+        if idx < len(current_studenti):
+            with c_sub2: desk(current_studenti[idx])
+            idx += 1
 
-    # Cattedra
-    canvas.create_rectangle(340, 5, 540, 35, fill="#fb8c00", outline="black")
-    canvas.create_text(440, 20, text="CATTEDRA", fill="white", font=("Arial", 10, "bold"))
-
-# Setup Finestra
-root = tk.Tk()
-root.title("Generatore Posti Classe - Simulatore Giornaliero")
-root.geometry("900x600")
-
-label_data = tk.Label(root, text="", font=("Arial", 14, "bold"), fg="#333")
-label_data.pack(pady=10)
-
-canvas = tk.Canvas(root, width=880, height=420, bg="white", highlightthickness=1)
-canvas.pack(pady=10)
-
-btn = tk.Button(root, text="🔄 GENERA PER IL GIORNO SUCCESSIVO", command=genera_disposizione, 
-                font=("Arial", 12, "bold"), bg="#4CAF50", fg="white", padx=20, pady=10)
-btn.pack()
-
-# Avvia con la data di oggi al primo colpo
-genera_disposizione()
-
-root.mainloop()
