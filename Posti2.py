@@ -34,7 +34,7 @@ st.title("🪑 Classroom Seating Simulator")
 st.subheader(f"Disposizione del: {st.session_state.data_simulata.strftime('%d/%m/%Y')}")
 
 # Button to generate next day
-st.button("🔄 GENERA PER IL GIORNO SUCCESSIVO", on_click=shuffle_seats)
+st.button("🔄 NUOVA CONFIGURAZIONE", on_click=shuffle_seats)
 
 # Helper function to create a "Desk" look
 def desk(name, color="#e1f5fe"):
