@@ -11,8 +11,10 @@ studenti = [
 ]
 
 # 1. Calcoliamo il seed basato SOLO sulla data di oggi
-str_date = datetime.now().strftime('%Y-%m-%d')
+# aggiungo 8 ore così che alle 16 scatti la configurazione del giorno dopo
+str_date = datetime.now() + deltatime(hours=8)
 
+seed_date = str_date.strftime('%Y-%m-%d')
 # 2. Generiamo l'ordine fisso per oggi (senza Session State per il rimescolamento)
 # In questo modo, ogni volta che la pagina carica, se la data è la stessa, l'ordine è lo stesso.
 random.seed(str_date)
