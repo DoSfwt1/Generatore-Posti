@@ -14,7 +14,7 @@ studenti = [
 # aggiungo 8 ore così che alle 16 scatti la configurazione del giorno dopo
 curr_date = datetime.now() + timedelta(hours=8)
 
-seed_date = curr_date.strftime('%Y-%m-%d')
+seed_date = curr_date.strftime('%d/%m/%Y')
 # 2. Generiamo l'ordine fisso per oggi (senza Session State per il rimescolamento)
 # In questo modo, ogni volta che la pagina carica, se la data è la stessa, l'ordine è lo stesso.
 random.seed(seed_date)
