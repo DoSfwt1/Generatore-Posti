@@ -8,14 +8,14 @@ def SWP(LST, IN, OUT):
     idx1 = target_list.index(IN)
     idx2 = target_list.index(OUT)
     target_list[idx1], target_list[idx2] = target_list[idx2], target_list[idx1]
-def WIN_XAAB(list):
+def WIN_XAAB(List):
     pd=list(o)
     for i in u:
-        if list.index(i) in k:
+        if List.index(i) in k:
             n = random.choice(pd)
-            while(list[n] in u):
+            while(List[n] in u):
                 n = random.choice(pd)
-            SWP(list,i,list[n])
+            SWP(list,i,List[n])
             pd.remove(n)
                 
     
