@@ -1,12 +1,12 @@
 import random
 
 
-import RES.UTS
+from RES.UTS import u,k,o
 
 
 def SWP(LST, IN, OUT):
-    idx1 = target_list.index(val1)
-    idx2 = target_list.index(val2)
+    idx1 = target_list.index(IN)
+    idx2 = target_list.index(OUT)
     target_list[idx1], target_list[idx2] = target_list[idx2], target_list[idx1]
 def WIN_XAAB(list):
     for i in u:
