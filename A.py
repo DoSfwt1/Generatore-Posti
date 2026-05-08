@@ -5,9 +5,9 @@ from RES.UTS import u,k,o
 
 
 def SWP(LST, IN, OUT):
-    idx1 = target_list.index(IN)
-    idx2 = target_list.index(OUT)
-    target_list[idx1], target_list[idx2] = target_list[idx2], target_list[idx1]
+    idx1 = LST.index(IN)
+    idx2 = LST.index(OUT)
+    LST[idx1], LST[idx2] = LST[idx2], LST[idx1]
 def WIN_XAAB(List):
     pd=list(o)
     for i in u:
@@ -15,7 +15,7 @@ def WIN_XAAB(List):
             n = random.choice(pd)
             while(List[n] in u):
                 n = random.choice(pd)
-            SWP(list,i,List[n])
+            SWP(List,i,List[n])
             pd.remove(n)
                 
     
