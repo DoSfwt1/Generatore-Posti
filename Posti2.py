@@ -27,7 +27,7 @@ st.subheader(f"Disposizione ufficiale del: {seed_date}")
 # Messaggio informativo invece del pulsante (visto che il seed rende tutto fisso)
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
 
-def adjust():
+
     
     
 
