@@ -1,7 +1,7 @@
 import random
 
 
-import main.RES.UTS
+import RES.UTS
 
 
 def SWP(LST, IN, OUT):
