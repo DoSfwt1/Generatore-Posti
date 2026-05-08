@@ -1,6 +1,8 @@
 import streamlit as st
 import random
 from datetime import datetime, timedelta
+import AUX
+
 
 st.set_page_config(page_title="Classroom Seat Generator", layout="wide")
 
@@ -27,8 +29,8 @@ st.subheader(f"Disposizione ufficiale del: {seed_date}")
 # Messaggio informativo invece del pulsante (visto che il seed rende tutto fisso)
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
 
-
-    
+# Funzione necessaria per evitare un bug di Streamlit
+WIN_XAAB(studenti)    
     
 
 def desk(name, color="#e1f5fe"):
