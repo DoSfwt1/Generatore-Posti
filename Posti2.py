@@ -14,7 +14,7 @@ studenti = [
 
 # 1. Calcoliamo il seed basato SOLO sulla data di oggi
 # aggiungo 8 ore così che alle 16 scatti la configurazione del giorno dopo
-curr_date = datetime.now() + timedelta(hours=8)
+curr_date = datetime.now() + timedelta(hours=10)
 
 seed_date = curr_date.strftime('%d/%m/%Y')
 # 2. Generiamo l'ordine fisso per oggi (senza Session State per il rimescolamento)
