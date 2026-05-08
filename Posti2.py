@@ -12,7 +12,7 @@ studenti = [
 
 # 1. Calcoliamo il seed basato SOLO sulla data di oggi
 # aggiungo 8 ore così che alle 16 scatti la configurazione del giorno dopo
-curr_date = datetime.now() + timedelta(hours=8)
+curr_date = datetime.now() + timedelta(hours=7)
 
 seed_date = curr_date.strftime('%d/%m/%Y')
 # 2. Generiamo l'ordine fisso per oggi (senza Session State per il rimescolamento)
@@ -26,6 +26,10 @@ st.subheader(f"Disposizione ufficiale del: {seed_date}")
 
 # Messaggio informativo invece del pulsante (visto che il seed rende tutto fisso)
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
+
+def adjust():
+    
+    
 
 def desk(name, color="#e1f5fe"):
     st.markdown(f"""
