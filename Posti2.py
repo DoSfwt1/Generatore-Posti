@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 from datetime import datetime, timedelta
-import AUX
+from AUX import WIN_XAAB
 
 
 st.set_page_config(page_title="Classroom Seat Generator", layout="wide")
