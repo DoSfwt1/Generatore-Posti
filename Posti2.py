@@ -23,7 +23,9 @@ seed_date = curr_date.strftime('%d/%m/%Y')
 # In questo modo, ogni volta che la pagina carica, se la data è la stessa, l'ordine è lo stesso.
 random.seed(seed_date)
 random.shuffle(studenti)
-len(studenti)
+lght = len(studenti)
+if(lght!=lenght):
+    st.error("Qualcosa è andato storto...")
 # Titolo e Data
 st.title("🪑 Classroom Seating Simulator")
 st.subheader(f"Disposizione ufficiale del: {seed_date}")
