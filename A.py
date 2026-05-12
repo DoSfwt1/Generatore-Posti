@@ -8,7 +8,7 @@ def SWP(LST, IN, OUT):
     idx1 = LST.index(IN)
     idx2 = LST.index(OUT)
     LST[idx1], LST[idx2] = LST[idx2], LST[idx1]
-def WIN_XAAB(List):
+def len(List):
     pd=list(o)
     for i in u:
         if List.index(i) in k:
