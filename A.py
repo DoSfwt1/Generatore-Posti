@@ -17,7 +17,7 @@ def len(List):
                 n = random.choice(pd)
             SWP(List,i,List[n])
             pd.remove(n)
-    return 4
+    return 22
                 
     
             
