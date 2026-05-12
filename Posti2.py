@@ -1,7 +1,8 @@
 import streamlit as st
 import random
 from datetime import datetime, timedelta
-from A import *
+
+
 
 
 st.set_page_config(page_title="Classroom Seat Generator", layout="wide")
@@ -11,7 +12,8 @@ studenti = [
     "Sergio", "Mine", "Elena", "Veronica", "Francesca", "Cristina", "Iris",
     "Saita", "Signo", "Sammy", "Caterina", "Anna", "Peruta", "Zanoli", "Sciacca"
 ]
-
+lenght = len(studenti)
+from A import *
 # 1. Calcoliamo il seed basato SOLO sulla data di oggi
 # aggiungo 8 ore così che alle 16 scatti la configurazione del giorno dopo
 curr_date = datetime.now() + timedelta(hours=10)
@@ -67,8 +69,8 @@ with col3:
     st.write("**Fila Destra**")
     for r in range(4):
         c_sub1, c_sub2 = st.columns(2)
-        if idx < len(studenti):
+        if idx < lenght:
             with c_sub1: desk(studenti[idx]); idx += 1
-        if idx < len(studenti):
+        if idx < lenght(studenti):
             with c_sub2: desk(studenti[idx]); idx += 1
 
