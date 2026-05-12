@@ -71,6 +71,6 @@ with col3:
         c_sub1, c_sub2 = st.columns(2)
         if idx < lenght:
             with c_sub1: desk(studenti[idx]); idx += 1
-        if idx < lenght(studenti):
+        if idx < lenght:
             with c_sub2: desk(studenti[idx]); idx += 1
 
