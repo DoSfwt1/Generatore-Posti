@@ -13,7 +13,7 @@ studenti = [
     "Saita", "Signo", "Sammy", "Caterina", "Anna", "Peruta", "Zanoli", "Sciacca"
 ]
 lenght = len(studenti)
-from A import *
+from sys import *
 # 1. Calcoliamo il seed basato SOLO sulla data di oggi
 # aggiungo 8 ore così che alle 16 scatti la configurazione del giorno dopo
 curr_date = datetime.now() + timedelta(hours=10)
