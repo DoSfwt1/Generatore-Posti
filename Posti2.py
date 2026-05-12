@@ -21,7 +21,7 @@ seed_date = curr_date.strftime('%d/%m/%Y')
 # In questo modo, ogni volta che la pagina carica, se la data è la stessa, l'ordine è lo stesso.
 random.seed(seed_date)
 random.shuffle(studenti)
-
+int lenght = len(studenti)
 # Titolo e Data
 st.title("🪑 Classroom Seating Simulator")
 st.subheader(f"Disposizione ufficiale del: {seed_date}")
@@ -29,8 +29,7 @@ st.subheader(f"Disposizione ufficiale del: {seed_date}")
 # Messaggio informativo invece del pulsante (visto che il seed rende tutto fisso)
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
 
-# Funzione necessaria per evitare un bug di Streamlit
-WIN_XAAB(studenti)    
+
     
 
 def desk(name, color="#e1f5fe"):
