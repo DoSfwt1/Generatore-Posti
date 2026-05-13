@@ -17,6 +17,16 @@ def len(List):
                 n = random.choice(pd)
             SWP(List,i,List[n])
             pd.remove(n)
+            
+    temp6=List[6]
+    temp7=List[7]
+    sig=List.index("Signo")
+    zan=List.index("Zano")
+    List[6]="Signo"
+    List[7]="Zano"
+    List[sig]=temp6
+    List[zan]=temp7
+    
     return 23
                 
     
