@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 st.set_page_config(page_title="Classroom Seat Generator", layout="wide")
 
-#st.error("  ")
+
 
 studenti = [
     "Brusa", "Kalle", "Martina", "Dige", "Doyle", "Londino", "Carlo", "Arianna",
