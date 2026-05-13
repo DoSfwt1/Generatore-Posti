@@ -19,9 +19,7 @@ def len(List):
             pd.remove(n)
             
     
-    sig = List.index("Signo")
-    zan = List.index("Zanoli")
-    List[6], List[7], List[sig], List[zan] = "Signo", "Zanoli", List[6], List[7]
+ 
 
 
     return 23
