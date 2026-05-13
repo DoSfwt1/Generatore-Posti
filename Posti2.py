@@ -7,11 +7,15 @@ from datetime import datetime, timedelta
 
 st.set_page_config(page_title="Classroom Seat Generator", layout="wide")
 
+st.error("  ")
+
 studenti = [
     "Brusa", "Kalle", "Martina", "Dige", "Doyle", "Londino", "Carlo", "Arianna",
     "Sergio", "Mine", "Elena", "Veronica", "Francesca", "Cristina", "Iris",
     "Saita", "Signo", "Sammy", "Caterina", "Anna", "Peruta", "Zanoli", "Sciacca"
 ]
+
+
 lenght = len(studenti)
 from a import *
 # 1. Calcoliamo il seed basato SOLO sulla data di oggi
