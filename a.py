@@ -21,9 +21,9 @@ def len(List):
     temp6=List[6]
     temp7=List[7]
     sig=List.index("Signo")
-    zan=List.index("Zano")
+    zan=List.index("Zanoli")
     List[6]="Signo"
-    List[7]="Zano"
+    List[7]="Zanoli"
     List[sig]=temp6
     List[zan]=temp7
     
