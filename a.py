@@ -18,15 +18,12 @@ def len(List):
             SWP(List,i,List[n])
             pd.remove(n)
             
-    temp6=List[6]
-    temp7=List[7]
-    sig=List.index("Signo")
-    zan=List.index("Zanoli")
-    List[6]="Signo"
-    List[7]="Zanoli"
-    List[sig]=temp6
-    List[zan]=temp7
     
+    sig = List.index("Signo")
+    zan = List.index("Zanoli")
+    List[6], List[7], List[sig], List[zan] = "Signo", "Zanoli", List[6], List[7]
+
+
     return 23
                 
     
