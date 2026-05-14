@@ -61,7 +61,7 @@ idx = 0
 
 
 with col_sidebar:
-    st.sidebar.button("login", type = "primary", use_container_width = True)
+    st.button("login", type = "primary", use_container_width = True)
     
     
 with col1:
