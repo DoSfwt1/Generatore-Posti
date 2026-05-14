@@ -7,7 +7,10 @@ from datetime import datetime, timedelta
 
 st.set_page_config(page_title="Classroom Seat Generator", layout="wide")
 
-
+if "admin_mode" not in st.session_state:
+    st.session_state.admin_mode = False
+if "show_login" not in st.session_state:
+    st.session_state.show_login = False
 
 studenti = [
     "Brusa", "Kalle", "Martina", "Dige", "Doyle", "Londino", "Carlo", "Arianna",
@@ -38,7 +41,10 @@ st.subheader(f"Disposizione ufficiale del: {seed_date}")
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
 
 
-    
+if st.session_state.admin_mode == False:
+    st.sidebar.button("Login",type="primary",use_container_width=True)
+
+
 
 def desk(name, color="#e1f5fe"):
     st.markdown(f"""
