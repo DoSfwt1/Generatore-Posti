@@ -41,7 +41,19 @@ st.subheader(f"Disposizione ufficiale del: {seed_date}")
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
 
 
+def login_dialog():
+    with st.dialog("login",dismissable=True):
+        st.write("Big Brother is always watching you...")
+        
 
+
+
+if st.session_state.show_login == True:
+    if st.session_state.admin_mode == True:
+        st.error("Sei già dentro come amministratore!")
+    else:
+        login_dialog()
+        
 
 
 
@@ -61,7 +73,9 @@ idx = 0
 
 
 with st.sidebar:
-    st.button("login",type="primary",use_container_width=True)
+    if st.button("login",type="primary",use_container_width=True):
+        st.session_state.show_login = True
+        st.rerun()
     
     
 with col1:
