@@ -64,12 +64,12 @@ def login_dialog():
                 if not user_row.empty:
                     pswd = str(user_row["Password"].values[0])
                     if(pswd==password):
-                            if str(user_row["AdminStatus"].values[0])=="TRUE":
-                                st.write("Login da amministratore\n avvenuto con successo")
-                            else:
-                                st.write("Spiacente! non sei amministratore")
+                        if str(user_row["AdminStatus"].values[0])=="TRUE":
+                            st.write("Login da amministratore\n avvenuto con successo")
                         else:
-                            st.error("Password errata")
+                            st.write("Spiacente! non sei amministratore")
+                    else:
+                        st.error("Password errata")
                 else:
                     st.error("Username errato")
 
