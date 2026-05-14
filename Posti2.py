@@ -64,7 +64,7 @@ def login_dialog():
                 if not user_row.empty:
                     pswd = str(user_row["Password"].values[0])
                     if(pswd==password):
-                            if str(user_row["AdminStatus"]=="TRUE":
+                            if str(user_row["AdminStatus"].values[0]=="TRUE":
                                 st.write("Login da amministratore\n avvenuto con successo")
                             else:
                                 st.write("Spiacente! non sei amministratore")
