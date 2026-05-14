@@ -61,8 +61,8 @@ def login_dialog():
 if st.session_state.show_login == True:
     if st.session_state.admin_mode == True:
         st.error("Sei già dentro come amministratore!")
- else:
-    login_dialog()
+     else:
+        login_dialog()
         
 
 
