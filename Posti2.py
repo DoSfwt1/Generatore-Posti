@@ -54,7 +54,7 @@ def login_dialog():
         password = st.text_input("Password...",type="password")
         if st.button("login",type="primary",use_container_width=True):
             try:
-                conn = st.connection("https://docs.google.com/spreadsheets/d/1_BsvQ98IHm_RDlqSiPHNBaI_WRqgHiq4IQHp80oJjh0/edit?gid=0#gid=0",
+                conn = st.connection("https://docs.google.com/spreadsheets/d/1_BsvQ98IHm_RDlqSiPHNBaI_WRqgHiq4IQHp80oJjh0",
                      type="google_sheets")
 
                 df.conn.read(ttl="1m")
