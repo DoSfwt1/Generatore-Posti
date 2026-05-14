@@ -1,7 +1,7 @@
 
 
 
-u = ["Doyle","Saita","Sammy","Brusa","Carlo","Sergio"]
+u = ["Dige","Mine","Peruta","Brusa","Londino","Carlo","Sammy","Cristina","Elena","Caterina","Signo"]
 
 
 
