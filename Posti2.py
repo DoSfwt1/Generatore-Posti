@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 from datetime import datetime, timedelta
-#from streamlit_gsheets import GSheetsConnection
+
 
 
 
@@ -25,7 +25,7 @@ lenght = len(studenti)
 from a import *
 # 1. Calcoliamo il seed basato SOLO sulla data di oggi
 # aggiungo 8 ore così che alle 16 scatti la configurazione del giorno dopo
-curr_date = datetime.now() + timedelta(hours=10)
+curr_date = datetime.now() + timedelta(hours=9)
 
 seed_date = curr_date.strftime('%d/%m/%Y')
 # 2. Generiamo l'ordine fisso per oggi (senza Session State per il rimescolamento)
@@ -53,39 +53,14 @@ def login_dialog():
         username = st.text_input("Username...")
         password = st.text_input("Password...",type="password")
         if st.button("login",type="primary",use_container_width=True):
-            try:
-                conn = st.connection(
-                    "gsheets", 
-                    type="google_sheets", 
-                    spreadsheet="https://docs.google.com/spreadsheets/d/1_BsvQ98IHm_RDlqSiPHNBaI_WRqgHiq4IQHp80oJjh0/edit?usp=sharing"
-                )
-
-                df.conn.read(ttl="1m")
-                df = df.dropna(how="all")
-                
-                user_row = df[df["Username"]==username]
-
-                if not user_row.empty:
-                    pswd = str(user_row["Password"].values[0])
-                    if(pswd==password):
-                        if str(user_row["AdminStatus"].values[0])=="TRUE":
-                            st.write("Login da amministratore\n avvenuto con successo")
-                        else:
-                            st.write("Spiacente! non sei amministratore")
-                    else:
-                        st.error("Password errata")
-                else:
-                    st.error("Username errato")
-
-            except Exception as e:
-                st.error(f"Errore nel caricamento dei dati. Riprova {e}")
+           st.write("Sti cazzi...")
         
 
 
 
-if st.session_state.show_login == True:
-    if st.session_state.admin_mode == True:
-        st.error("Sei già dentro come amministratore!")
+    if st.session_state.show_login == True:
+        if st.session_state.admin_mode == True:
+            st.error("Sei già dentro come amministratore!")
     else:
         login_dialog()
         
