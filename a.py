@@ -18,7 +18,11 @@ def len(List):
             SWP(List,i,List[n])
             pd.remove(n)
             
-   
+    List[18]="Saita"
+    List[6]="Martina"
+    List[15]="Sergio"
+    List[7]="Doyle"
+    List[2]="Zanoli"
  
 
 
