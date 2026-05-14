@@ -42,7 +42,7 @@ st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
 
 
 def login_dialog():
-    with st.dialog("login",dismissable=True):
+    with st.dialog("login",dismissible=True):
         st.write("Big Brother is always watching you...")
         
 
