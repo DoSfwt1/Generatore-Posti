@@ -19,8 +19,6 @@ def len(List):
             pd.remove(n)
             
     List[15]="Sergio"
-    List[2]="Doyle"
-    List[6]="Martina"
     List[18]="Saita"
  
 
