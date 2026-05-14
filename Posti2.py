@@ -33,11 +33,12 @@ random.shuffle(studenti)
 lght = len(studenti)
 if(lght!=lenght):
     st.error("Qualcosa è andato storto...")
-# Titolo e Data
+
+
+
 col_logo, _ = st.columns([1, 4]) 
-#with col_logo:
-    
-    #st.image("logo.png", use_container_width=True)
+with col_logo:
+    st.image("big_brother_eye.png", use_container_width=True)
 
 st.subheader(f"Disposizione ufficiale del: {seed_date}")
 
