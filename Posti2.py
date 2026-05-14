@@ -78,7 +78,7 @@ def login_dialog():
                     st.error("Username errato")
 
             except Exception as e:
-                st.error("Errore nel caricamento dei dati. Riprova "{e})
+                st.error(f"Errore nel caricamento dei dati. Riprova {e}")
         
 
 
