@@ -56,12 +56,12 @@ def desk(name, color="#e1f5fe"):
 
 st.markdown("<div style='background-color: #fb8c00; color: white; text-align: center; padding: 10px; font-weight: bold; border-radius: 5px; width: 200px; margin: 0 auto 30px auto;'>CATTEDRA</div>", unsafe_allow_html=True)
 
-col1, spacer1, col2, spacer2, col3, col_sidebar = st.columns([2, 1, 3, 1, 2, 1])
+col1, spacer1, col2, spacer2, col3 = st.columns([2, 1, 3, 1, 2])
 idx = 0
 
 
-with col_sidebar:
-    st.button("login", type = "primary", use_container_width = True)
+with st.sidebar:
+    st.button("login",type="primary",use_container_width=False)
     
     
 with col1:
