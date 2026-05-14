@@ -38,7 +38,7 @@ if(lght!=lenght):
 
 col_logo, _ = st.columns([1, 4]) 
 with col_logo:
-    st.logo("big_brother_eye.png", use_container_width=True)
+    st.logo("big_brother_eye.png")
 
 st.subheader(f"Disposizione ufficiale del: {seed_date}")
 
