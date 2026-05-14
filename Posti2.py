@@ -40,9 +40,8 @@ st.subheader(f"Disposizione ufficiale del: {seed_date}")
 # Messaggio informativo invece del pulsante (visto che il seed rende tutto fisso)
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
 
-
+@st.dialog("login",dismissible=True)
 def login_dialog():
-    with st.dialog("login",dismissible=True):
         st.write("Big Brother is always watching you...")
         
 
