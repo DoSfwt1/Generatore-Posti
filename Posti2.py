@@ -41,8 +41,7 @@ st.subheader(f"Disposizione ufficiale del: {seed_date}")
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
 
 
-if st.session_state.admin_mode == False:
-    st.sidebar.button("Login",type="primary",use_container_width=True)
+
 
 
 
@@ -57,9 +56,14 @@ def desk(name, color="#e1f5fe"):
 
 st.markdown("<div style='background-color: #fb8c00; color: white; text-align: center; padding: 10px; font-weight: bold; border-radius: 5px; width: 200px; margin: 0 auto 30px auto;'>CATTEDRA</div>", unsafe_allow_html=True)
 
-col1, spacer1, col2, spacer2, col3 = st.columns([2, 1, 3, 1, 2])
+col1, spacer1, col2, spacer2, col3, col_sidebar = st.columns([2, 1, 3, 1, 2, 2])
 idx = 0
 
+
+with col_sidebar:
+    st.sidebar.button("login", type = "primary", use_container_width = True)
+    
+    
 with col1:
     st.write("**Fila Sinistra**")
     for r in range(3):
