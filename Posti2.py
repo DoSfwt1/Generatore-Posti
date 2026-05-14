@@ -56,7 +56,7 @@ def desk(name, color="#e1f5fe"):
 
 st.markdown("<div style='background-color: #fb8c00; color: white; text-align: center; padding: 10px; font-weight: bold; border-radius: 5px; width: 200px; margin: 0 auto 30px auto;'>CATTEDRA</div>", unsafe_allow_html=True)
 
-col1, spacer1, col2, spacer2, col3, col_sidebar = st.columns([2, 1, 3, 1, 2, 2])
+col1, spacer1, col2, spacer2, col3, col_sidebar = st.columns([2, 1, 3, 1, 2, 1])
 idx = 0
 
 
