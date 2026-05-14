@@ -7,6 +7,8 @@ from datetime import datetime, timedelta
 
 st.set_page_config(page_title="Classroom Seat Generator", layout="wide")
 
+
+
 if "admin_mode" not in st.session_state:
     st.session_state.admin_mode = False
 if "show_login" not in st.session_state:
@@ -50,6 +52,29 @@ def login_dialog():
         st.write("Big Brother is always watching you...")
         username = st.text_input("Username...")
         password = st.text_input("Password...",type="password")
+        if st.button("login",type="primary",use_container_width=True):
+            try:
+                conn = st.connection("https://docs.google.com/spreadsheets/d/1_BsvQ98IHm_RDlqSiPHNBaI_WRqgHiq4IQHp80oJjh0/edit?usp=sharing",
+                     type="google_sheets")
+
+                df.conn.read(ttl="1m")
+
+                user_row = df[df["Username"]==username]
+
+                if not user_row.empty:
+                    pswd = str(user_row["Password"].values[0])
+                    if(pswd==password):
+                            if(str(user_row["AdminStatus"]=="TRUE"):
+                                st.write("Login da amministratore\n avvenuto con successo")
+                            else:
+                                st.write("Spiacente! non sei amministratore")
+                        else:
+                            st.error("Password errata")
+                else:
+                    st.error("Username errato")
+
+            except Exeption as e:
+                st.error("Errore nel caricamento dei dati. Riprova")
         
 
 
