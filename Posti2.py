@@ -34,7 +34,11 @@ lght = len(studenti)
 if(lght!=lenght):
     st.error("Qualcosa è andato storto...")
 # Titolo e Data
-st.title("🪑 Classroom Seating Simulator")
+col_logo, _ = st.columns([1, 4]) 
+#with col_logo:
+    
+    #st.image("logo.png", use_container_width=True)
+
 st.subheader(f"Disposizione ufficiale del: {seed_date}")
 
 # Messaggio informativo invece del pulsante (visto che il seed rende tutto fisso)
