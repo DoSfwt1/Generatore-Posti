@@ -55,9 +55,7 @@ def login_dialog():
                 conn = st.connection("gsheets", type=GSheetsConnection)   
                 table = conn.read()
                 table.dropna()
-                user_row = table[table["Username"]==username]
-                if user_row not st.empty:
-                    st.write(user_row["Password"]
+                
             except Exception as e:
                 st.error(f"Il server ha riscontrato un errore: {e}")
             
