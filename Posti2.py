@@ -24,7 +24,7 @@ studenti = [
 lenght = len(studenti)
 from a import *
 
-curr_date = datetime.now() + timedelta(hours=9)
+curr_date = datetime.now() + timedelta(hours=11)
 
 seed_date = curr_date.strftime('%d/%m/%Y')
 
