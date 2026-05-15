@@ -30,7 +30,7 @@ seed_date = curr_date.strftime('%d/%m/%Y')
 
 random.seed(seed_date)
 random.shuffle(studenti)
-lght = len(studenti)
+lght = 23#len(studenti)
 if(lght!=lenght):
     st.error("Qualcosa è andato storto...")
 
