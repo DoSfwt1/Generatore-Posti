@@ -1,7 +1,7 @@
 
 
 
-u = ["Dige","Mine","Peruta","Brusa","Londino","Carlo","Sammy","Cristina","Elena","Caterina","Sciacca"]
+u = ["Dige","Mine","Anna","Brusa","Londino","Carlo","Sammy","Arianna","Elena","Caterina","Sciacca"]
 
 
 
