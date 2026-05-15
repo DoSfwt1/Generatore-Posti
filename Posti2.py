@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 from datetime import datetime, timedelta
-
+from streamlit_gsheets import GSheetsConnection
 
 
 
@@ -23,13 +23,11 @@ studenti = [
 
 lenght = len(studenti)
 from a import *
-# 1. Calcoliamo il seed basato SOLO sulla data di oggi
-# aggiungo 8 ore così che alle 16 scatti la configurazione del giorno dopo
+
 curr_date = datetime.now() + timedelta(hours=9)
 
 seed_date = curr_date.strftime('%d/%m/%Y')
-# 2. Generiamo l'ordine fisso per oggi (senza Session State per il rimescolamento)
-# In questo modo, ogni volta che la pagina carica, se la data è la stessa, l'ordine è lo stesso.
+
 random.seed(seed_date)
 random.shuffle(studenti)
 lght = len(studenti)
@@ -44,7 +42,7 @@ with col_logo:
 
 st.subheader(f"Disposizione ufficiale del: {seed_date}")
 
-# Messaggio informativo invece del pulsante (visto che il seed rende tutto fisso)
+
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
 
 @st.dialog("login",dismissible=True)
@@ -53,7 +51,8 @@ def login_dialog():
         username = st.text_input("Username...")
         password = st.text_input("Password...",type="password")
         if st.button("login",type="primary",use_container_width=True):
-           st.write("Sti cazzi...")
+            conn = st.connection("gsheets", type=GSheetsConnection)   
+            df = conn.read()
         
 
 
