@@ -51,9 +51,16 @@ def login_dialog():
         username = st.text_input("Username...")
         password = st.text_input("Password...",type="password")
         if st.button("login",type="primary",use_container_width=True):
-            conn = st.connection("gsheets", type=GSheetsConnection)   
-            df = conn.read()
-            st.dataframe(df).values[0]
+            try:
+                conn = st.connection("gsheets", type=GSheetsConnection)   
+                table = conn.read()
+                table.dropna()
+                user_row = table[table["Username"]==username]
+                if user_row not st.empty:
+                    st.write(user_row["Password"]
+            except Exception as e:
+                st.error(f"Il server ha riscontrato un errore: {e}")
+            
         
 
 
