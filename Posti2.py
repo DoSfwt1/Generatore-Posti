@@ -53,7 +53,7 @@ def login_dialog():
         if st.button("login",type="primary",use_container_width=True):
             conn = st.connection("gsheets", type=GSheetsConnection)   
             df = conn.read()
-            st.dataframe(df)
+            st.dataframe(df).values[0]
         
 
 
