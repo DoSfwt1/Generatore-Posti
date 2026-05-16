@@ -13,7 +13,7 @@ if "logged" not in st.session_state:
 if "admin" not in st.session_state:
     st.session_state.admin=False
 
-@st.dialog("login",dismissible=False)
+@st.dialog("LOGIN",dismissible=False)
 def login_dialog():
         st.write("ACCEDI")
         username = st.text_input("USERNAME...")
@@ -23,6 +23,16 @@ def login_dialog():
                 conn = st.connection("gsheets", type=GSheetsConnection)   
                 table = conn.read()
                 table.dropna()
+
+                user_row = table[table["Username"]==username]
+                if user_row.empty() == False:
+                    if user_row["Password"].values[0]==password:
+                        st.session_state.logged = True
+                        st.rerun()
+                    else:
+                        st.write("La password inserita è errata")
+                else:
+                    st.write("L'username inserito è errato")
                 
             except Exception as e:
                 st.error(f"Il server ha riscontrato un errore: {e}")
