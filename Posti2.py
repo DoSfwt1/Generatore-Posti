@@ -30,6 +30,8 @@ def login_dialog():
                     if user_row["Password"].values[0]==password:
                         st.session_state.logged = True
                         st.rerun()
+                        if user_row["AdminStatus"].values[0] == True:
+                            st.session_state.admin=True
                     else:
                         st.write("La password inserita è errata")
                 else:
