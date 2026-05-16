@@ -44,6 +44,13 @@ def login_dialog():
                 st.error(f"Il server ha riscontrato un errore nel caricamento del database: {e}")
 
 
+
+@st.dialog("AVVISO", dismissible=True)
+def nonAdmin_dialog():
+    st.write("""Non sei registrato come amministratore, questo vuol dire che puoi vedere unicamente il tuo posto\n
+    se desideri vedere l'intera piantina accedi come amministratore o contatta l'assistenza""")
+
+
 if st.session_state.logged==False:
     login_dialog()
 
@@ -90,7 +97,11 @@ else:
         """, unsafe_allow_html=True)
 
     st.markdown("<div style='background-color: #fb8c00; color: white; text-align: center; padding: 10px; font-weight: bold; border-radius: 5px; width: 200px; margin: 0 auto 30px auto;'>CATTEDRA</div>", unsafe_allow_html=True)
-    st.button("Come mai vedo i posti così?",type="primary")
+    
+    
+    if st.session_state.admin==False:
+        if st.button("Come mai vedo i posti così?",type="primary"):
+            
     col1, spacer1, col2, spacer2, col3 = st.columns([2, 1, 3, 1, 2])
     idx = 0
 
