@@ -8,11 +8,29 @@ from streamlit_gsheets import GSheetsConnection
 st.set_page_config(page_title="Classroom Seat Generator", layout="wide")
 
 
+if "logged" not in st.session_state:
+    st.session_state.logged=False
+if "admin" not in st.session_state:
+    st.session_state.admin=False
 
-if "admin_mode" not in st.session_state:
-    st.session_state.admin_mode = False
-if "show_login" not in st.session_state:
-    st.session_state.show_login = False
+@st.dialog("login",dismissible=False)
+def login_dialog():
+        st.write("Big Brother is always watching you...")
+        username = st.text_input("Username...")
+        password = st.text_input("Password...",type="password")
+        if st.button("login",type="primary",use_container_width=True):
+            try:
+                conn = st.connection("gsheets", type=GSheetsConnection)   
+                table = conn.read()
+                table.dropna()
+                
+            except Exception as e:
+                st.error(f"Il server ha riscontrato un errore: {e}")
+
+
+if st.session_state.logged=False:
+    login_dialog()
+
 
 studenti = [
     "Brusa", "Kalle", "Martina", "Dige", "Doyle", "Londino", "Carlo", "Arianna",
@@ -45,20 +63,7 @@ st.subheader(f"Disposizione ufficiale del: {seed_date}")
 
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
 
-@st.dialog("login",dismissible=True)
-def login_dialog():
-        st.write("Big Brother is always watching you...")
-        username = st.text_input("Username...")
-        password = st.text_input("Password...",type="password")
-        if st.button("login",type="primary",use_container_width=True):
-            try:
-                conn = st.connection("gsheets", type=GSheetsConnection)   
-                table = conn.read()
-                table.dropna()
-                
-            except Exception as e:
-                st.error(f"Il server ha riscontrato un errore: {e}")
-            
+
         
 
 
