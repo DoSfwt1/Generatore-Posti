@@ -23,7 +23,7 @@ def login_dialog():
         if st.button("login",type="primary",use_container_width=True):
             try:
                 conn = st.connection("gsheets", type=GSheetsConnection)   
-                table = conn.read()
+                table = conn.read(ttl="1m")
                 table.dropna()
                 
                 user_row = table[table["Username"]==username]
