@@ -90,10 +90,7 @@ else:
     idx = 0
 
 
-    with st.sidebar:
-        if st.button("login",type="primary",use_container_width=True):
-            st.session_state.show_login = True
-            st.rerun()
+    
     
     
     with col1:
