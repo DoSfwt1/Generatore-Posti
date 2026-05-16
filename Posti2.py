@@ -64,19 +64,6 @@ st.subheader(f"Disposizione ufficiale del: {seed_date}")
 st.info(f"La disposizione si aggiorna automaticamente ogni giorno alle 16:00.")
 
 
-        
-
-
-
-if st.session_state.show_login == True:
-    if st.session_state.admin_mode == True:
-        st.error("Sei già dentro come amministratore!")
-    else:
-        login_dialog()
-        
-
-
-
 def desk(name, color="#e1f5fe"):
     st.markdown(f"""
         <div style="background-color: {color}; border: 2px solid #01579b; border-radius: 5px;
