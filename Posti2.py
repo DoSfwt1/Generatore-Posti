@@ -23,11 +23,10 @@ def login_dialog():
                 conn = st.connection("gsheets", type=GSheetsConnection)   
                 table = conn.read()
                 table.dropna()
-                try:
-                    user_row = table[table["Username"]==username]
-                except Exception as e:
-                    st.write("Errore nel codice user_row = table[table[Username]==username]")
-                if user_row.empty() == False:
+                
+                user_row = table[table["Username"]==username]
+                
+                if user_row.empty == False:
                     if user_row["Password"].values[0]==password:
                         st.session_state.logged = True
                         st.rerun()
