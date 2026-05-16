@@ -50,7 +50,7 @@ else:
     random.shuffle(studenti)
     lght = len(studenti)
     if(lght!=lenght):
-    st.error("Qualcosa è andato storto...")
+        st.error("Qualcosa è andato storto...")
 
 
 
