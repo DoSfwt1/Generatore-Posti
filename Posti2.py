@@ -15,9 +15,8 @@ if "admin" not in st.session_state:
 
 @st.dialog("login",dismissible=False)
 def login_dialog():
-        st.write("Big Brother is always watching you...")
-        username = st.text_input("Username...")
-        password = st.text_input("Password...",type="password")
+        st.write("ACCEDI")
+        username = st.text_input("USERNAME...",type="PASSWORD...")
         if st.button("login",type="primary",use_container_width=True):
             try:
                 conn = st.connection("gsheets", type=GSheetsConnection)   
