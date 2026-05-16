@@ -23,8 +23,10 @@ def login_dialog():
                 conn = st.connection("gsheets", type=GSheetsConnection)   
                 table = conn.read()
                 table.dropna()
-
-                user_row = table[table["Username"]==username]
+                try:
+                    user_row = table[table["Username"]==username]
+                except Exception as e:
+                    st.write("Errore nel codice user_row = table[table[Username]==username]")
                 if user_row.empty() == False:
                     if user_row["Password"].values[0]==password:
                         st.session_state.logged = True
@@ -35,7 +37,7 @@ def login_dialog():
                     st.write("L'username inserito è errato")
                 
             except Exception as e:
-                st.error(f"Il server ha riscontrato un errore: {e}")
+                st.error(f"Il server ha riscontrato un errore nel caricamento del database: {e}")
 
 
 if st.session_state.logged==False:
