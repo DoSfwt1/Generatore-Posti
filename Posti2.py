@@ -15,6 +15,7 @@ if "admin" not in st.session_state:
 if "seat" not in st.session_state:
     st.session_state.seat = " "
 
+
 @st.dialog("LOGIN",dismissible=False)
 def login_dialog():
         st.write("ACCEDI")
