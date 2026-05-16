@@ -28,7 +28,7 @@ def login_dialog():
                 st.error(f"Il server ha riscontrato un errore: {e}")
 
 
-if st.session_state.logged=False:
+if st.session_state.logged==False:
     login_dialog()
 
 
