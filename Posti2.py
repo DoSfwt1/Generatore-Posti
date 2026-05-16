@@ -102,7 +102,7 @@ else:
     
     if st.session_state.admin==False:
         if st.button("Come mai vedo i posti così?",type="primary"):
-            
+            nonAdmin_dialog()        
     col1, spacer1, col2, spacer2, col3 = st.columns([2, 1, 3, 1, 2])
     idx = 0
 
