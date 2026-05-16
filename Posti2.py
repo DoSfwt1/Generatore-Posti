@@ -56,7 +56,7 @@ else:
 
     col_logo, _ = st.columns([1, 4]) 
     with col_logo:
-    st.logo("big_brother_eye.png")
+        st.logo("big_brother_eye.png")
 
     st.subheader(f"Disposizione ufficiale del: {seed_date}")
 
@@ -89,18 +89,23 @@ else:
         st.write("**Fila Sinistra**")
         for r in range(3):
             c_sub1, c_sub2 = st.columns(2)
-            with c_sub1: desk(studenti[idx]); idx += 1
-            with c_sub2: desk(studenti[idx]); idx += 1
+            with c_sub1: 
+                desk(studenti[idx]); idx += 1
+            with c_sub2: 
+                desk(studenti[idx]); idx += 1
 
     with col2:
         st.write("**Fila Centrale**")
         for r in range(3):
             c_sub1, c_sub2 = st.columns(2)
-            with c_sub1: desk(studenti[idx]); idx += 1
-            with c_sub2: desk(studenti[idx]); idx += 1
+            with c_sub1: 
+                desk(studenti[idx]); idx += 1
+            with c_sub2: 
+                desk(studenti[idx]); idx += 1
         c_sub1, c_sub2, c_sub3 = st.columns(3)
         for c in [c_sub1, c_sub2, c_sub3]:
-            with c: desk(studenti[idx], color="#fff9c4"); idx += 1
+            with c: 
+                desk(studenti[idx], color="#fff9c4"); idx += 1
 
     with col3:
         st.write("**Fila Destra**")
