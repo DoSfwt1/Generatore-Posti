@@ -107,7 +107,7 @@ else:
                     if st.session_state.seat == studenti[idx]:
                         desk(studenti[idx])
                     else:
-                        desk(" ")
+                        desk("****")
                 else:
                     desk(studenti[idx])
                 idx+=1
@@ -116,7 +116,7 @@ else:
                     if st.session_state.seat == studenti[idx]:
                         desk(studenti[idx])
                     else:
-                        desk(" ")
+                        desk("****")
                 else:
                     desk(studenti[idx])
                 idx+=1
@@ -130,7 +130,7 @@ else:
                     if st.session_state.seat == studenti[idx]:
                         desk(studenti[idx])
                     else:
-                        desk(" ")
+                        desk("****")
                 else:
                     desk(studenti[idx])
                 idx+=1
@@ -139,7 +139,7 @@ else:
                     if st.session_state.seat == studenti[idx]:
                         desk(studenti[idx])
                     else:
-                        desk(" ")
+                        desk("****")
                 else:
                     desk(studenti[idx])
                 idx+=1
@@ -150,7 +150,7 @@ else:
                     if st.session_state.seat == studenti[idx]:
                         desk(studenti[idx])
                     else:
-                        desk(" ")
+                        desk("****")
                 else:
                     desk(studenti[idx])
                 idx+=1
@@ -165,7 +165,7 @@ else:
                         if st.session_state.seat == studenti[idx]:
                             desk(studenti[idx])
                         else:
-                            desk(" ")
+                            desk("****")
                     else:
                         desk(studenti[idx])
                     idx+=1
@@ -175,7 +175,7 @@ else:
                         if st.session_state.seat == studenti[idx]:
                             desk(studenti[idx])
                         else:
-                            desk(" ")
+                            desk("****")
                     else:
                         desk(studenti[idx])
                     idx+=1
