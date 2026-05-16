@@ -31,8 +31,8 @@ def login_dialog():
 if st.session_state.logged==False:
     login_dialog()
 
-
-studenti = [
+else:
+    studenti = [
     "Brusa", "Kalle", "Martina", "Dige", "Doyle", "Londino", "Carlo", "Arianna",
     "Sergio", "Mine", "Elena", "Veronica", "Francesca", "Cristina", "Iris",
     "Saita", "Signo", "Sammy", "Caterina", "Anna", "Peruta", "Zanoli", "Sciacca"
