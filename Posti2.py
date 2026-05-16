@@ -90,7 +90,7 @@ else:
         """, unsafe_allow_html=True)
 
     st.markdown("<div style='background-color: #fb8c00; color: white; text-align: center; padding: 10px; font-weight: bold; border-radius: 5px; width: 200px; margin: 0 auto 30px auto;'>CATTEDRA</div>", unsafe_allow_html=True)
-
+    st.button("Come mai vedo i posti così?",type="primary")
     col1, spacer1, col2, spacer2, col3 = st.columns([2, 1, 3, 1, 2])
     idx = 0
 
