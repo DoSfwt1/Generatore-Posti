@@ -65,13 +65,13 @@ else:
 
 
     def desk(name, color="#e1f5fe"):
-    st.markdown(f"""
-        <div style="background-color: {color}; border: 2px solid #01579b; border-radius: 5px;
-            padding: 10px; text-align: center; font-weight: bold; margin-bottom: 10px;
-            color: #01579b; font-family: Arial;">
-            {name}
-        </div>
-    """, unsafe_allow_html=True)
+        st.markdown(f"""
+            <div style="background-color: {color}; border: 2px solid #01579b; border-radius: 5px;
+                padding: 10px; text-align: center; font-weight: bold; margin-bottom: 10px;
+                color: #01579b; font-family: Arial;">
+                {name}
+            </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("<div style='background-color: #fb8c00; color: white; text-align: center; padding: 10px; font-weight: bold; border-radius: 5px; width: 200px; margin: 0 auto 30px auto;'>CATTEDRA</div>", unsafe_allow_html=True)
 
