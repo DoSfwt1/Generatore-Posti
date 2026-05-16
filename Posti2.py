@@ -27,7 +27,7 @@ def login_dialog():
                 table.dropna()
                 
                 user_row = table[table["Username"]==username]
-                
+                st.write(user_row)
                 if user_row.empty == False:
                     if user_row["Password"].values[0]==password:
                         st.session_state.logged = True
