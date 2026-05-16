@@ -48,8 +48,8 @@ def login_dialog():
 
 @st.dialog("AVVISO", dismissible=True)
 def nonAdmin_dialog():
-    st.write("""Non sei registrato come amministratore, questo vuol dire che puoi vedere unicamente il tuo posto\n
-    se desideri vedere l'intera piantina accedi come amministratore o contatta l'assistenza""")
+    st.write("""Non sei registrato come amministratore, questo vuol dire che puoi vedere unicamente il tuo posto.
+    Se desideri vedere l'intera piantina accedi come amministratore o contatta l'assistenza""")
 
 
 if st.session_state.logged==False:
