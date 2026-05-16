@@ -12,6 +12,8 @@ if "logged" not in st.session_state:
     st.session_state.logged=False
 if "admin" not in st.session_state:
     st.session_state.admin=False
+if "seat" not in st.session_state:
+    st.session_state.seat = " "
 
 @st.dialog("LOGIN",dismissible=False)
 def login_dialog():
@@ -29,9 +31,10 @@ def login_dialog():
                 if user_row.empty == False:
                     if user_row["Password"].values[0]==password:
                         st.session_state.logged = True
-                        st.rerun()
                         if user_row["AdminStatus"].values[0] == True:
                             st.session_state.admin=True
+                        st.session_state.seat = user_row["Id"].values[0]
+                        st.rerun()
                     else:
                         st.write("La password inserita è errata")
                 else:
@@ -99,30 +102,67 @@ else:
         st.write("**Fila Sinistra**")
         for r in range(3):
             c_sub1, c_sub2 = st.columns(2)
-            with c_sub1: 
-                desk(studenti[idx]); idx += 1
+            with c_sub1:
+                if st.session_state.admin == False:
+                    if st.session_state.seat == studenti[idx]:
+                        desk(studenti[idx])
+                else:
+                    desk(studenti[idx])
+                idx+=1
             with c_sub2: 
-                desk(studenti[idx]); idx += 1
+                if st.session_state.admin == False:
+                    if st.session_state.seat == studenti[idx]:
+                        desk(studenti[idx])
+                else:
+                    desk(studenti[idx])
+                idx+=1
 
     with col2:
         st.write("**Fila Centrale**")
         for r in range(3):
             c_sub1, c_sub2 = st.columns(2)
             with c_sub1: 
-                desk(studenti[idx]); idx += 1
+                if st.session_state.admin == False:
+                    if st.session_state.seat == studenti[idx]:
+                        desk(studenti[idx])
+                else:
+                    desk(studenti[idx])
+                idx+=1
             with c_sub2: 
-                desk(studenti[idx]); idx += 1
+                if st.session_state.admin == False:
+                    if st.session_state.seat == studenti[idx]:
+                        desk(studenti[idx])
+                else:
+                    desk(studenti[idx])
+                idx+=1
         c_sub1, c_sub2, c_sub3 = st.columns(3)
         for c in [c_sub1, c_sub2, c_sub3]:
             with c: 
-                desk(studenti[idx], color="#fff9c4"); idx += 1
+                if st.session_state.admin == False:
+                    if st.session_state.seat == studenti[idx]:
+                        desk(studenti[idx])
+                else:
+                    desk(studenti[idx])
+                idx+=1
 
     with col3:
         st.write("**Fila Destra**")
         for r in range(4):
             c_sub1, c_sub2 = st.columns(2)
             if idx < lenght:
-                with c_sub1: desk(studenti[idx]); idx += 1
+                with c_sub1: 
+                    if st.session_state.admin == False:
+                        if st.session_state.seat == studenti[idx]:
+                            desk(studenti[idx])
+                    else:
+                        desk(studenti[idx])
+                    idx+=1
             if idx < lenght:
-                with c_sub2: desk(studenti[idx]); idx += 1
+                with c_sub2: 
+                    if st.session_state.admin == False:
+                        if st.session_state.seat == studenti[idx]:
+                            desk(studenti[idx])
+                    else:
+                        desk(studenti[idx])
+                    idx+=1
 
