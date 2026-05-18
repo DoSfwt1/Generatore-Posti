@@ -64,7 +64,7 @@ else:
 
 
     lenght = len(studenti)
-    # from a import *
+   
 
     curr_date = datetime.now() + timedelta(hours=11)
 
@@ -72,9 +72,7 @@ else:
 
     random.seed(seed_date)
     random.shuffle(studenti)
-    # lght = len(studenti)
-    # if(lght!=lenght):
-    #    st.error("Qualcosa è andato storto...")
+    
 
 
 
