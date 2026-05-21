@@ -77,7 +77,7 @@ else:
     random.seed(seed_date)
     random.shuffle(studenti)
     
-    signo(studenti)
+    #signo(studenti)
 
 
     col_logo, _ = st.columns([1, 4]) 
