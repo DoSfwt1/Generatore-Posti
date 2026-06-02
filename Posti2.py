@@ -17,8 +17,10 @@ if "seat" not in st.session_state:
 
 
 def signo(list):
-    signo_idx=list.index("Francesca")
-    list[0],list[signo_idx]=list[signo_idx],list[0]
+    good_seat=4
+    name=list[good_seat]
+    bad_seat=list.index("Doyle")
+    list[good_seat],list[bad_seat]=list[bad_seat],list[good_seat]
 
 @st.dialog("LOGIN",dismissible=False)
 def login_dialog():
